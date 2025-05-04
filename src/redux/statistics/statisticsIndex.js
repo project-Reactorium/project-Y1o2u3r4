@@ -1,0 +1,1 @@
+import { setMonth, setYear, selectMonth } from '../../redux/statistics/statisticsIndex';
