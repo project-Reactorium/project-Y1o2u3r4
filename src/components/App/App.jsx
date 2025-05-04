@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RestrictedRoute } from "../Routes/RestrictedRoute";
 import { refreshUser } from "../../redux/auth/operations";
 import { selectIsRefreshing } from "../../redux/auth/selectors";
+import LogOut from "../LogOut/LogOut";
 import "./App.css";
 
 
@@ -21,6 +22,7 @@ function App() {
   return (
     <>
       <p>project-Y1o2u3r4</p>
+      <LogOut />
       <Suspense fallback={null}>
         <Routes>         
         <Route  path="/register"  element={ <RestrictedRoute redirectTo="/"  component={<RegisterPage />} /> }  />

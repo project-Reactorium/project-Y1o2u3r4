@@ -1,9 +1,13 @@
 import { useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from "formik";
-import { useId, useState } from "react";
+import {  useState } from "react";
 import * as Yup from "yup";
 import { register } from '../../redux/auth/operations';
 import Logotip from '../../images/logo.svg';
+import PasswordStrengthBar from 'react-password-strength-bar-with-style-item';
+
+
+
 import {
     UserIcon,
     EmailIcon,
@@ -16,7 +20,6 @@ import {
     PasswordIcon,
   } from '../LoginForm/LoginForm.styled';
   import { LogotipStyled } from './RegisterForm.styled';
-  import { ProgressBar } from './ProgressBar';
   import { CustomButton } from '../CustomElements/CustomButton';
 
 const ValidationSchema = Yup.object().shape({
@@ -138,7 +141,7 @@ export const RegisterForm = () => {
                     placeholder="Confirm password"
                     autoComplete="off"
                   />
-                  <ProgressBar password={password} />
+                   <PasswordStrengthBar password={password} />
                 </div>
                 <ErrorMessageStyled>
                   <ErrorMessage component="span" name="passwordConfirm" />
@@ -150,8 +153,12 @@ export const RegisterForm = () => {
             <CustomButton isNavLink to="/login">
               Log In
             </CustomButton>
+           
           </FormStyled>
+
         )}
+       
+       
       </Formik>
     );
   };
