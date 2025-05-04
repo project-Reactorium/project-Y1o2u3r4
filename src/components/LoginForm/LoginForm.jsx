@@ -1,7 +1,7 @@
-import { CustomButton } from 'components/CustomElements/CustomButton';
+import { CustomButton } from '../CustomElements/CustomButton';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import { logIn } from 'redux/authReducer/operations';
+import { logIn } from '../../redux/auth/operations';
 import { Formik } from 'formik';
 import Logotip from '../../images/logo.svg';
 import {
@@ -14,7 +14,7 @@ import {
   PasswordIcon,
 } from './LoginForm.styled';
 import { toast } from 'react-toastify';
-import { LogotipStyled } from 'components/RegisterForm/RegisterForm.styled';
+import { LogotipStyled } from '../../components/RegisterForm/RegisterForm.styled';
 
 const ValidationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email address').required('Required'),
