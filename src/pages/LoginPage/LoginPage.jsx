@@ -1,11 +1,15 @@
-import css from './LoginPage.module.css'
+import LoginForm from '../../components/LoginForm/LoginForm';
+import styles from '../../components/RegisterForm/RegisterForm.module.css';
 
-function LoginPage() {
+
+const LoginPage = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <div className={styles.mainContainer}>
+          <div className={styles.contentContainer}>
+        <LoginForm />
+        </div>
+        </div>
+  );
+};
 
-export default LoginPage
+export default LoginPage;
