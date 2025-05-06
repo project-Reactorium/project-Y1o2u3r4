@@ -7,15 +7,15 @@ const StatisticsTable = () => {
   const statistics = useSelector(selectStatistics);
 
   if (!statistics || statistics.length === 0) {
-    return <p>Veri bulunamadı.</p>;
+    return <p>No data found.</p>;
   }
 
   return (
     <table className={styles.table}>
       <thead>
         <tr>
-          <th>Kategori</th>
-          <th>Tutar</th>
+          <th>Category</th>
+          <th>Amount</th>
         </tr>
       </thead>
       <tbody>
