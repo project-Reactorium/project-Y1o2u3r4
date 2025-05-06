@@ -26,4 +26,4 @@ const statisticsSlice = createSlice({
 });
 
 export const { setMonth, setYear } = statisticsSlice.actions;
-export default statisticsSlice.reducer;
+export const statisticsReducer = statisticsSlice.reducer;
