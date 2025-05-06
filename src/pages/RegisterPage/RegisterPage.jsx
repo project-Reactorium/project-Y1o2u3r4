@@ -1,11 +1,14 @@
-import css from "./RegisterPage.module.css";
+import { RegisterForm } from '../../components/RegisterForm/RegisterForm';
+import styles from '../../components/RegisterForm/RegisterForm.module.css';
 
-function RegisterPage() {
+const RegisterPage = () => {
   return (
-    <div>
-      
+    <div className={styles.mainContainer}>
+      <div className={styles.contentContainer}>
+        <RegisterForm />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default RegisterPage
+export default RegisterPage;
