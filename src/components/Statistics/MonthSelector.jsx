@@ -4,8 +4,8 @@ import { setMonth } from '../../redux/statistics/statisticsSlice';
 import { selectMonth } from '../../redux/statistics/statisticsSelectors';
 
 const months = [
-  'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran',
-  'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
 ];
 
 const MonthSelector = () => {
