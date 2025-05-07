@@ -2,6 +2,11 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import CurrencyChart from "../currencyChart/CurrencyChart";
 import styles from "./Sidebar.module.css";
+import Home from "../../assets/Home";
+import Statistics from "../../assets/Statistics";
+import Balance from "../balance/balance.jsx";
+import Currency from "../Currency/Currency.jsx";
+
 
 const Sidebar = () => {
   const balance = useSelector((state) => state.finance.totalBalance);
@@ -16,7 +21,7 @@ const Sidebar = () => {
             isActive ? `${styles.StyledLink} ${styles.StyledLinkActive}` : styles.StyledLink
           }
         >
-          🏠 Home
+          <span className={styles.Icon}>{Home()} Home </span>  
         </NavLink>
         <NavLink
           to="/statistics"
@@ -24,16 +29,17 @@ const Sidebar = () => {
             isActive ? `${styles.StyledLink} ${styles.StyledLinkActive}` : styles.StyledLink
           }
         >
-          📊 Statistics
+          <span className={styles.Icon}>{Statistics()} Statistics </span> 
         </NavLink>
       </nav>
 
       <div className={styles.InfoSection}>
         <div className={styles.BalanceBox}>
-          <h4 className={styles.Title}>Bakiye</h4>
+          <h4 className={styles.Title}>Your Balance</h4>
           <p className={styles.Amount}>{balance.toFixed(2)} ₺</p>
         </div>
-
+        <Balance/>
+        <Currency />
         <div className={styles.CurrencyBox}>
           <h4 className={styles.Title}>Döviz</h4>
           <ul>
