@@ -7,4 +7,9 @@ export default defineConfig({
   build: {
     sourcemap: true,
   },
+  resolve: {
+    alias: {
+      'redux-persist/integration/react': 'redux-persist/es/integration/react',
+    },
+  },
 });
