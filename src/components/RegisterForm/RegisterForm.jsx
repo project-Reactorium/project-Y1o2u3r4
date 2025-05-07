@@ -4,7 +4,7 @@ import { useState } from "react";
 import * as Yup from "yup";
 import { toast } from 'react-toastify';
 import { register } from "../../redux/auth/operations";
-import Logotip from "../../images/logo.svg";
+// import Logotip from "../../images/logo.svg";
 import PasswordStrengthBar from "react-password-strength-bar-with-style-item";
 import styles from "../LoginForm/LoginForm.module.css";
 
@@ -77,23 +77,24 @@ export const RegisterForm = () => {
   return (
     <Container component="main" maxWidth="xs">
       <Box className={styles.formStyled}>
-        <Box sx={{ textAlign: "center", marginBottom: 3 }}>
+        <Box sx={{ textAlign: 'center', marginBottom: 3 }}>
           <img
-            src={Logotip}
+            src="/public/images/logo.svg"
             alt="Logo MoneyGuard"
             width="36px"
             height="36px"
             draggable="false"
+            style={{ display: 'inline-block' }}
           />
           <Typography variant="h5">MoneyGuard</Typography>
         </Box>
 
         <Formik
           initialValues={{
-            username: "",
-            email: "",
-            password: "",
-            passwordConfirm: "",
+            username: '',
+            email: '',
+            password: '',
+            passwordConfirm: '',
           }}
           validationSchema={ValidationSchema}
           onSubmit={handleSubmit}
@@ -115,7 +116,7 @@ export const RegisterForm = () => {
                         startAdornment: (
                           <InputAdornment position="start">
                             <PersonIcon
-                              sx={{ color: "rgba(255, 255, 255, 0.4)" }}
+                              sx={{ color: 'rgba(255, 255, 255, 0.4)' }}
                             />
                           </InputAdornment>
                         ),
@@ -142,7 +143,7 @@ export const RegisterForm = () => {
                         startAdornment: (
                           <InputAdornment position="start">
                             <EmailIcon
-                              sx={{ color: "rgba(255, 255, 255, 0.4)" }}
+                              sx={{ color: 'rgba(255, 255, 255, 0.4)' }}
                             />
                           </InputAdornment>
                         ),
@@ -164,7 +165,7 @@ export const RegisterForm = () => {
                       placeholder="Password"
                       autoComplete="new-password"
                       value={values.password}
-                      onChange={(e) => {
+                      onChange={e => {
                         handleChange(e);
                         setPassword(e.target.value);
                       }}
@@ -174,7 +175,7 @@ export const RegisterForm = () => {
                         startAdornment: (
                           <InputAdornment position="start">
                             <LockIcon
-                              sx={{ color: "rgba(255, 255, 255, 0.4)" }}
+                              sx={{ color: 'rgba(255, 255, 255, 0.4)' }}
                             />
                           </InputAdornment>
                         ),
@@ -206,7 +207,7 @@ export const RegisterForm = () => {
                         startAdornment: (
                           <InputAdornment position="start">
                             <LockIcon
-                              sx={{ color: "rgba(255, 255, 255, 0.4)" }}
+                              sx={{ color: 'rgba(255, 255, 255, 0.4)' }}
                             />
                           </InputAdornment>
                         ),
@@ -223,7 +224,7 @@ export const RegisterForm = () => {
                 variant="contained"
                 fullWidth
                 className={`${styles.buttonBase} ${styles.customButton}`}
-                sx={{ borderRadius: "20px" }}
+                sx={{ borderRadius: '20px' }}
               >
                 REGISTER
               </Button>
@@ -235,9 +236,9 @@ export const RegisterForm = () => {
                 className={`${styles.buttonBase} ${styles.navLinkButton}`}
                 sx={{
                   marginTop: 2,
-                  borderRadius: "20px",
-                  backgroundColor: "#ffffff",
-                  color: "#623f8b",
+                  borderRadius: '20px',
+                  backgroundColor: '#ffffff',
+                  color: '#623f8b',
                 }}
               >
                 LOG IN
