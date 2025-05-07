@@ -18,7 +18,7 @@ import HttpsIcon from "@mui/icons-material/Https";
 
 import css from "./LoginForm.module.css";
 import { logIn } from "../../redux/auth/operations";
-import Logotip from "../../images/logo.svg";
+import Logotip from "../../../public/images/logo.svg";
 const initialValues = {
   email: "",
   password: "",
