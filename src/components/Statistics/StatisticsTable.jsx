@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectStatistics } from '../../redux/statistics/statisticsSelectors';
+import { selectFilteredStatistics } from '../../redux/statistics/statisticsSelectors';
 
 const StatisticsTable = () => {
-  const statistics = useSelector(selectStatistics);
+  const statistics = useSelector(selectFilteredStatistics);
 
   if (!statistics.length) {
     return <p>Veri bulunamadı.</p>;
@@ -16,7 +16,7 @@ const StatisticsTable = () => {
           <th>Date</th>
           <th>Type</th>
           <th>Category</th>
-          <th>Amount</th>
+          <th>Sum</th>
           <th>Comment</th>
         </tr>
       </thead>
@@ -26,7 +26,7 @@ const StatisticsTable = () => {
             <td>{item.date}</td>
             <td>{item.type}</td>
             <td>{item.category}</td>
-            <td>{item.amount}</td>
+            <td>{item.sum}</td>
             <td>{item.comment}</td>
           </tr>
         ))}

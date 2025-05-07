@@ -8,3 +8,16 @@ export const categories = [
   { name: 'Other expenses', color: '#B4F7C7' },
   { name: 'Income', color: '#FFD700' }, // Sarı, gelir için
 ];
+// src/data/categories.js
+export const categoriesFilter = [
+  "Main expenses",
+  "Products",
+  "Car",
+  "Self care",
+  "Child care",
+  "Household products",
+  "Education",
+  "Leisure",
+  "Other expenses",
+  "Entertainment"
+];

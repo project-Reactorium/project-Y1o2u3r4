@@ -1,15 +1,17 @@
 import "./App.css";
 import Header from "../Header/Header";
 import Navigation from "../Navigation/Navigation";
-import PieChart from "../PieChart/PieChart";
+import StatisticsDashboard from "../Statistics/StatisticsDashboard";
 
 function App() {
   return (
     <div className="app-container">
       <Header />
       <Navigation />
-      <PieChart />
-    <div/>
+      <div className="statistics-wrapper">
+        <StatisticsDashboard />
+      </div>
+    </div>
   );
 }
 

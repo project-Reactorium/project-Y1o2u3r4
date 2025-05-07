@@ -3,8 +3,9 @@ import { fetchStatistics } from './statisticsOperations';
 
 const initialState = {
   statistics: [],
-  month: 1,
-  year: 2023,
+  month: 5,
+  year: 2025,
+  selectedCategory: "", // Kategori filtresi
 };
 
 const statisticsSlice = createSlice({
@@ -17,6 +18,9 @@ const statisticsSlice = createSlice({
     setYear(state, action) {
       state.year = action.payload;
     },
+    setSelectedCategory(state, action) {
+      state.selectedCategory = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchStatistics.fulfilled, (state, action) => {
@@ -25,5 +29,5 @@ const statisticsSlice = createSlice({
   },
 });
 
-export const { setMonth, setYear } = statisticsSlice.actions;
+export const { setMonth, setYear, setSelectedCategory } = statisticsSlice.actions;
 export const statisticsReducer = statisticsSlice.reducer;
