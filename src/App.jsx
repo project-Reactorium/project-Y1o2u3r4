@@ -1,9 +1,12 @@
 import "./App.css";
+import Header from "./components/Header/Header";
+import Navigation from "./components/Navigation/Navigation";
 
 function App() {
   return (
     <>
-      <p>project-Y1o2u3r4</p>
+      <Header />
+      <Navigation />
     </>
   );
 }

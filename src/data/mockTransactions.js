@@ -1,0 +1,42 @@
+export const mockTransactions = [
+  {
+    id: 1,
+    amount: 300,
+    category: "Other",
+    type: "expense",
+    date: "2023-01-04",
+    comment: "Gift for your wife",
+  },
+  {
+    id: 2,
+    amount: 8000,
+    category: "Income",
+    type: "income",
+    date: "2023-01-05",
+    comment: "January bonus",
+  },
+  {
+    id: 3,
+    amount: 1000,
+    category: "Car",
+    type: "expense",
+    date: "2023-01-07",
+    comment: "Oil",
+  },
+  {
+    id: 4,
+    amount: 280,
+    category: "Products",
+    type: "expense",
+    date: "2023-01-07",
+    comment: "Vegetables for the week",
+  },
+  {
+    id: 5,
+    amount: 1000,
+    category: "Income",
+    type: "income",
+    date: "2023-01-07",
+    comment: "Gift",
+  },
+];
