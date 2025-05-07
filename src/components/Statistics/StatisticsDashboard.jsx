@@ -10,7 +10,7 @@ import {
   setSelectedCategory,
 } from '../../redux/statistics/statisticsSlice';
 import StatisticsTable from './StatisticsTable';
-import CategoryDropdown from '../CategoryDropdown/CategoryDropdown';
+
 
 const StatisticsDashboard = () => {
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ const StatisticsDashboard = () => {
   return (
     <div>
       <h2>Statistics</h2>
-      <CategoryDropdown selected={selectedCategory} onChange={handleCategoryChange} />
+   
       <StatisticsTable />
     </div>
   );

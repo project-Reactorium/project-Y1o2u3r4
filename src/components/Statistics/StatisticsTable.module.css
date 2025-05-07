@@ -1,0 +1,88 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.categoryHeader {
+    position: relative;
+    /* Dropdown içeriğini doğru konumlamak için */
+    cursor: pointer;
+}
+
+.headerLabel {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Seçili kategori adını parantez içinde gösterir */
+.selected {
+    margin-left: 4px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: max-content;
+ background-color: black;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 4px;
+    list-style: none;
+    padding: 4px 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+/* Menü öğeleri */
+.dropdownMenu li {
+    padding: 6px 12px;
+    white-space: nowrap;
+}
+
+.dropdownMenu li:hover {
+color: #555;
+}
+
+/* Seçili öğeyi vurgulama */
+.active {
+    font-weight: bold;
+  
+}
+/* src/components/Statistics/StatisticsTable.module.css */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.totals {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-top: 1px solid #ccc;
+    font-size: 1rem;
+  
+}
+
+.totals div {
+    flex: 1;
+    text-align: center;
+}
