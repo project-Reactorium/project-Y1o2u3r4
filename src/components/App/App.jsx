@@ -5,11 +5,11 @@ import PieChart from "../PieChart/PieChart";
 
 function App() {
   return (
-    <>
+    <div className="app-container">
       <Header />
       <Navigation />
       <PieChart />
-    </>
+    <div/>
   );
 }
 
