@@ -34,7 +34,7 @@
 
   color: var(--text-color);
   background-color: black;
-  background-image: url("./../public/images/login-bg/bg-login-mobile@3x.jpg");
+  background-image: url("./../public/images/login-bg/bg-login-web@3x.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
