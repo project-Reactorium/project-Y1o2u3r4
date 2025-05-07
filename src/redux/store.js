@@ -12,24 +12,31 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth/slice';
+import financeReducer from './financeSlice';
+import currencyReducer from './currencySlice';
+import transactionReducer from './transactionSlice';
 
 
 const authPersistConfig = {
-    key: 'auth',
-    storage,
-    whitelist: ['token'],
-  };
-  
-  export const store = configureStore({
-    reducer: {
-      auth: persistReducer(authPersistConfig, authReducer),
-    },
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({
-        serializableCheck: {
-          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-        },
-      }),
-  });
-  
-  export const persistor = persistStore(store);
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
+
+
+export const store = configureStore({
+  reducer: {
+    auth: persistReducer(authPersistConfig, authReducer),
+    finance: financeReducer,
+    currency: currencyReducer,
+    transactions: transactionReducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
+
+export const persistor = persistStore(store);

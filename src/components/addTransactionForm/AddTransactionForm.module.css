@@ -1,0 +1,16 @@
+.Form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .Label {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .Error {
+    color: red;
+    font-size: 12px;
+  }
+  
