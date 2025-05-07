@@ -3,8 +3,8 @@ import { fetchStatistics } from './statisticsOperations';
 
 const initialState = {
   statistics: [],
-  month: new Date().getMonth() + 1,
-  year: new Date().getFullYear(),
+  month: 1,
+  year: 2023,
 };
 
 const statisticsSlice = createSlice({

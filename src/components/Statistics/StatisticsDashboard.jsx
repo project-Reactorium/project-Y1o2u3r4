@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import MonthSelector from './MonthSelector';
-import YearSelector from './YearSelector';
-import StatisticsTable from './StatisticsTable';
 import { fetchStatistics } from '../../redux/statistics/statisticsOperations';
 import { selectMonth, selectYear } from '../../redux/statistics/statisticsSelectors';
-import styles from './Statistics.module.css';
+import StatisticsTable from './StatisticsTable';
 
 const StatisticsDashboard = () => {
   const dispatch = useDispatch();
@@ -17,11 +14,8 @@ const StatisticsDashboard = () => {
   }, [dispatch, month, year]);
 
   return (
-    <div className={styles.dashboard}>
-      <div className={styles.selectors}>
-        <MonthSelector />
-        <YearSelector />
-      </div>
+    <div>
+      <h2>Statistics</h2>
       <StatisticsTable />
     </div>
   );

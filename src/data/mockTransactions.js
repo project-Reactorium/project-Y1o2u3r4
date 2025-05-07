@@ -23,20 +23,4 @@ export const mockTransactions = [
     date: "2023-01-07",
     comment: "Oil",
   },
-  {
-    id: 4,
-    amount: 280,
-    category: "Products",
-    type: "expense",
-    date: "2023-01-07",
-    comment: "Vegetables for the week",
-  },
-  {
-    id: 5,
-    amount: 1000,
-    category: "Income",
-    type: "income",
-    date: "2023-01-07",
-    comment: "Gift",
-  },
 ];
