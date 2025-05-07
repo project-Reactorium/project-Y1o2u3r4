@@ -1,7 +1,9 @@
-import React from 'react';
+// src/components/Statistics/MonthSelector.jsx
+import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMonth } from '../../redux/statistics/statisticsSlice';
 import { selectMonth } from '../../redux/statistics/statisticsSelectors';
+import styles from './Dropdown.module.css';  // Ortak stil modülü
 
 const months = [
   'January', 'February', 'March', 'April', 'May', 'June',
@@ -10,20 +12,42 @@ const months = [
 
 const MonthSelector = () => {
   const dispatch = useDispatch();
-  const selectedMonth = useSelector(selectMonth);
+  const selected = useSelector(selectMonth);
+  const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef(null);
 
-  const handleChange = (e) => {
-    dispatch(setMonth(Number(e.target.value)));
-  };
+  useEffect(() => {
+    const onOutside = e => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', onOutside);
+    return () => document.removeEventListener('mousedown', onOutside);
+  }, []);
 
   return (
-    <select value={selectedMonth} onChange={handleChange}>
-      {months.map((month, index) => (
-        <option key={index} value={index + 1}>
-          {month}
-        </option>
-      ))}
-    </select>
+    <div className={styles.dropdownContainer} ref={ref}>
+      <div className={styles.label} onClick={() => setIsOpen(o => !o)}>
+        Month{selected ? `: ${months[selected - 1]}` : ''} ▼
+      </div>
+      {isOpen && (
+        <ul className={styles.menu}>
+          {months.map((m, i) => (
+            <li
+              key={m}
+              className={i + 1 === selected ? styles.active : ''}
+              onClick={() => {
+                dispatch(setMonth(i + 1));
+                setIsOpen(false);
+              }}
+            >
+              {m}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };
 

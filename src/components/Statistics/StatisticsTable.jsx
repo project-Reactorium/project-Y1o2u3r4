@@ -20,7 +20,7 @@ const StatisticsTable = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Dışarı tıklayınca dropdown kapat
+
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -37,7 +37,7 @@ const StatisticsTable = () => {
     setIsOpen(false);
   };
 
-  // Toplamları hesapla
+
   const expenseTotal = allStats
     .filter((item) => item.type === 'expense')
     .reduce((sum, item) => sum + item.sum, 0);

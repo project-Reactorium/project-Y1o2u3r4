@@ -1,18 +1,7 @@
-.table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.table th,
-.table td {
-    padding: 8px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
 
 .categoryHeader {
     position: relative;
-    /* Dropdown içeriğini doğru konumlamak için */
+
     cursor: pointer;
 }
 
@@ -21,7 +10,6 @@
     align-items: center;
 }
 
-/* Seçili kategori adını parantez içinde gösterir */
 .selected {
     margin-left: 4px;
     font-size: 0.9em;
@@ -44,7 +32,7 @@
     z-index: 10;
 }
 
-/* Menü öğeleri */
+
 .dropdownMenu li {
     padding: 6px 12px;
     white-space: nowrap;
@@ -54,12 +42,12 @@
 color: #555;
 }
 
-/* Seçili öğeyi vurgulama */
+
 .active {
     font-weight: bold;
   
 }
-/* src/components/Statistics/StatisticsTable.module.css */
+
 .table {
     width: 100%;
     border-collapse: collapse;
