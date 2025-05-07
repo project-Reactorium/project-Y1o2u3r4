@@ -1,0 +1,61 @@
+.header {
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(45deg, #2e1746 0%, #2e225f);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.logoRouter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.tabDeskLogo {
+  width: 115px;
+  height: 48px;
+  display: block;
+}
+
+.NameAndExit {
+  display: flex;
+  align-items: center;
+  color: #ffffff99;
+}
+
+.exitWrapper {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  color: #ff6b81;
+  transition: color 0.2s;
+}
+
+.exitLogo {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin: 0 8px 0 8px;
+  fill: #ff6b81;
+  transition: fill 0.2s;
+}
+
+.exitWrapper:hover,
+.exitWrapper:focus {
+  color: #ff3b5c;
+}
+
+.exitWrapper:hover .exitLogo,
+.exitWrapper:focus .exitLogo {
+  fill: #ff3b5c;
+}
