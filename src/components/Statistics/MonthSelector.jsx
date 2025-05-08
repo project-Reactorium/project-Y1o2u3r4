@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMonth } from '../../redux/statistics/statisticsSlice';
 import { selectMonth } from '../../redux/statistics/statisticsSelectors';
-import styles from './Dropdown.module.css';  // Ortak stil modülü
+import styles from './Dropdown.module.css';  
 
 const months = [
   'January', 'February', 'March', 'April', 'May', 'June',

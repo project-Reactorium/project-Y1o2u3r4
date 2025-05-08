@@ -5,7 +5,7 @@ const initialState = {
   statistics: [],
   month: 5,
   year: 2025,
-  selectedCategory: "", // Kategori filtresi
+  selectedCategory: "", 
 };
 
 const statisticsSlice = createSlice({
