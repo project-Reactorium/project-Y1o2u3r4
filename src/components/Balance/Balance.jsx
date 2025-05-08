@@ -4,8 +4,10 @@ import { selectBalance } from '../../redux/auth/selectors';
 import clsx from 'clsx';
 import { getFormatNumber } from '../../helpers/getFormatNumber';
 
+
 const Balance = () => {
-  const balance = useSelector(selectBalance);
+  // const balance = useSelector(selectBalance);
+  const balance = useSelector((state)=> state.finance.totalBalance);
 
   const formattedNumber = getFormatNumber(balance);
 

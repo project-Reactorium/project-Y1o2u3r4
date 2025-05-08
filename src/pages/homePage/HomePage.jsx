@@ -7,6 +7,7 @@ import Header from "../../components/header/Header";
 import Sidebar from "../../components/sidebar/Sidebar";
 import TransactionChart from "../../components/transactionChart/TransactionChart";
 import styles from "./HomePage.module.css";
+import { fetchTransactions } from "../../redux/transactionOperations";
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -17,6 +18,7 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(fetchCurrency());
+    dispatch(fetchTransactions());
   }, [dispatch]);
 
   return (

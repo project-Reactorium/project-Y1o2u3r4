@@ -3,11 +3,11 @@ const Home = () => {
         <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_d_15_286)">
         <rect x="10" y="7" width="18" height="18" rx="2" fill="#FBFBFB"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 7C10.8954 7 10 7.89543 10 9V23C10 24.1046 10.8954 25 12 25H26C27.1046 25 28 24.1046 28 23V9C28 7.89543 27.1046 7 26 7H12ZM17.8 17.1176V21H14.8V15.8235H13L19 10L25 15.8235H23.2V21H20.2V17.1176H17.8Z" fill="#734AEF"/>
+        <path fillRule="evenodd" clipRule="evenodd" d="M12 7C10.8954 7 10 7.89543 10 9V23C10 24.1046 10.8954 25 12 25H26C27.1046 25 28 24.1046 28 23V9C28 7.89543 27.1046 7 26 7H12ZM17.8 17.1176V21H14.8V15.8235H13L19 10L25 15.8235H23.2V21H20.2V17.1176H17.8Z" fill="#734AEF"/>
         </g>
         <defs>
-        <filter id="filter0_d_15_286" x="-3" y="-3" width="44" height="44" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <filter id="filter0_d_15_286" x="-3" y="-3" width="44" height="44" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+        <feFlood floodOpacity="0" result="BackgroundImageFix"/>
         <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
         <feOffset dy="3"/>
         <feGaussianBlur stdDeviation="5"/>

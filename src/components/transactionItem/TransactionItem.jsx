@@ -6,9 +6,11 @@ import { FaTrash } from "react-icons/fa";
 const TransactionItem = ({ item }) => {
   const dispatch = useDispatch();
 
+ 
   const handleDelete = () => {
-    dispatch(deleteTransaction(item.id));
+    dispatch(deleteTransaction({ id: item.id, amount: item.amount }));
   };
+  
 
   const isIncome = item.amount > 0;
 
