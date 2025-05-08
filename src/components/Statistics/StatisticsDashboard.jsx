@@ -5,9 +5,9 @@ import { fetchStatistics } from '../../redux/statistics/statisticsOperations';
 import {
   selectMonth,
   selectYear,
-  selectSelectedCategory,
+
 } from '../../redux/statistics/statisticsSelectors';
-import { setSelectedCategory } from '../../redux/statistics/statisticsSlice';
+
 import StatisticsTable from './StatisticsTable';
 import MonthSelector from './MonthSelector';
 import YearSelector from './YearSelector';
@@ -22,9 +22,7 @@ const StatisticsDashboard = () => {
     dispatch(fetchStatistics({ month, year }));
   }, [dispatch, month, year]);
 
-  const handleCategoryChange = (value) => {
-    dispatch(setSelectedCategory(value));
-  };
+
 
   return (
     <div className={styles.statisticsContainer}>
