@@ -17,7 +17,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background: white;
+
     border: 1px solid #aaa;
     border-radius: 4px;
     margin-top: 4px;
@@ -33,10 +33,48 @@
 }
 
 .menu li:hover {
-    background: #f0f0f0;
+
 }
 
 .active {
     font-weight: bold;
-    background: #e0e0e0;
+
+}
+.dropdownContainer {
+    position: relative;
+    width: 180px;
+    height: 50px;
+
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.menu {
+    position: absolute;
+    width: 182px;
+    max-height: 157px;
+    top: 50px;
+    left: 0;
+
+    border-radius: 8px;
+    z-index: 10;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.menu li:hover,
+.menu .active {
+
 }

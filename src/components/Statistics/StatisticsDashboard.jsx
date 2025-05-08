@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import styles from './StatisticsDashboard.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchStatistics } from '../../redux/statistics/statisticsOperations';
 import {
@@ -6,17 +7,16 @@ import {
   selectYear,
   selectSelectedCategory,
 } from '../../redux/statistics/statisticsSelectors';
-import {
-  setSelectedCategory,
-} from '../../redux/statistics/statisticsSlice';
+import { setSelectedCategory } from '../../redux/statistics/statisticsSlice';
 import StatisticsTable from './StatisticsTable';
-
+import MonthSelector from './MonthSelector';
+import YearSelector from './YearSelector';
 
 const StatisticsDashboard = () => {
   const dispatch = useDispatch();
   const month = useSelector(selectMonth);
   const year = useSelector(selectYear);
-  const selectedCategory = useSelector(selectSelectedCategory);
+
 
   useEffect(() => {
     dispatch(fetchStatistics({ month, year }));
@@ -27,10 +27,14 @@ const StatisticsDashboard = () => {
   };
 
   return (
-    <div>
-      <h2>Statistics</h2>
-   
-      <StatisticsTable />
+    <div className={styles.statisticsContainer}>
+      <div className={styles.filtersRow}>
+        <MonthSelector />
+        <YearSelector />
+      </div>
+      <div className={styles.tableWrapper}>
+        <StatisticsTable />
+      </div>
     </div>
   );
 };

@@ -1,8 +1,7 @@
 // src/components/Statistics/YearSelector.jsx
 import React, { useState, useRef, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setYear } from '../../redux/statistics/statisticsSlice';
-import { selectYear } from '../../redux/statistics/statisticsSelectors';
 import styles from './Dropdown.module.css';
 
 const currentYear = new Date().getFullYear();
@@ -10,37 +9,34 @@ const years = Array.from({ length: 5 }, (_, i) => currentYear - i);
 
 const YearSelector = () => {
   const dispatch = useDispatch();
-  const selected = useSelector(selectYear);
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
-    const onOutside = e => {
+    const onClickOutside = (e) => {
       if (ref.current && !ref.current.contains(e.target)) {
         setIsOpen(false);
       }
     };
-    document.addEventListener('mousedown', onOutside);
-    return () => document.removeEventListener('mousedown', onOutside);
+    document.addEventListener('mousedown', onClickOutside);
+    return () => document.removeEventListener('mousedown', onClickOutside);
   }, []);
+
+  const handleSelect = (year) => {
+    dispatch(setYear(year));
+    setIsOpen(false);
+  };
 
   return (
     <div className={styles.dropdownContainer} ref={ref}>
-      <div className={styles.label} onClick={() => setIsOpen(o => !o)}>
-        Year{selected ? `: ${selected}` : ''} ▼
+      <div className={styles.label} onClick={() => setIsOpen(prev => !prev)}>
+        Year ▼
       </div>
       {isOpen && (
         <ul className={styles.menu}>
-          {years.map(y => (
-            <li
-              key={y}
-              className={y === selected ? styles.active : ''}
-              onClick={() => {
-                dispatch(setYear(y));
-                setIsOpen(false);
-              }}
-            >
-              {y}
+          {years.map(year => (
+            <li key={year} onClick={() => handleSelect(year)}>
+              {year}
             </li>
           ))}
         </ul>

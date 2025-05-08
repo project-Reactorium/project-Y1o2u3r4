@@ -87,7 +87,7 @@ const StatisticsTable = () => {
         <tbody>
           {filtered.length === 0 ? (
             <tr>
-              <td colSpan={5}>Veri bulunamadı.</td>
+              <td colSpan={5}>No Data Found.</td>
             </tr>
           ) : (
             filtered.map((item) => (

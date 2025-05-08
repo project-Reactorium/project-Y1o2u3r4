@@ -1,9 +1,8 @@
 // src/components/Statistics/MonthSelector.jsx
 import React, { useState, useRef, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setMonth } from '../../redux/statistics/statisticsSlice';
-import { selectMonth } from '../../redux/statistics/statisticsSelectors';
-import styles from './Dropdown.module.css';  
+import styles from './Dropdown.module.css';
 
 const months = [
   'January', 'February', 'March', 'April', 'May', 'June',
@@ -12,37 +11,34 @@ const months = [
 
 const MonthSelector = () => {
   const dispatch = useDispatch();
-  const selected = useSelector(selectMonth);
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
-    const onOutside = e => {
+    const onClickOutside = (e) => {
       if (ref.current && !ref.current.contains(e.target)) {
         setIsOpen(false);
       }
     };
-    document.addEventListener('mousedown', onOutside);
-    return () => document.removeEventListener('mousedown', onOutside);
+    document.addEventListener('mousedown', onClickOutside);
+    return () => document.removeEventListener('mousedown', onClickOutside);
   }, []);
+
+  const handleSelect = (index) => {
+    dispatch(setMonth(index + 1));
+    setIsOpen(false);
+  };
 
   return (
     <div className={styles.dropdownContainer} ref={ref}>
-      <div className={styles.label} onClick={() => setIsOpen(o => !o)}>
-        Month{selected ? `: ${months[selected - 1]}` : ''} ▼
+      <div className={styles.label} onClick={() => setIsOpen(prev => !prev)}>
+        Month ▼
       </div>
       {isOpen && (
         <ul className={styles.menu}>
-          {months.map((m, i) => (
-            <li
-              key={m}
-              className={i + 1 === selected ? styles.active : ''}
-              onClick={() => {
-                dispatch(setMonth(i + 1));
-                setIsOpen(false);
-              }}
-            >
-              {m}
+          {months.map((month, index) => (
+            <li key={month} onClick={() => handleSelect(index)}>
+              {month}
             </li>
           ))}
         </ul>
