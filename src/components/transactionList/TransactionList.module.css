@@ -1,0 +1,27 @@
+.ListContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .TableHeader {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr 1.5fr 1fr 1fr;
+    padding: 10px 20px;
+    background: #3a2f5b;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .TableHeader {
+      display: none;
+    }
+  }
+  
+  .EmptyMessage {
+    color: #ccc;
+    text-align: center;
+  }
+  

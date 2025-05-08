@@ -1,0 +1,12 @@
+
+
+:root {
+  --primary-color: #6c5ce7; /* Butonlar */
+  --secondary-color: #a29bfe; /* Balance/Currency box */
+  --danger-color: #ff7675;
+  --success-color: #00b894;
+  --bg-color: #f5f6fa;
+  --header-bg: #2e0847;
+  --sidebar-bg: #2e0847;
+  --radius: 12px;
+}

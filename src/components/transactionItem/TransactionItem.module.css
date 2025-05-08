@@ -1,0 +1,27 @@
+.TransactionRow {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 1fr 1.5fr 1fr auto;
+  padding: 10px 20px;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.Income {
+  background-color: #e0f7e9;
+}
+
+.Expense {
+  background-color: #fdecea;
+}
+
+.DeleteButton {
+  background: transparent;
+  border: none;
+  color: #d11a2a;
+  cursor: pointer;
+}
+
+.DeleteButton:hover {
+  color: #ff0000;
+}
