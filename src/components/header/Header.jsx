@@ -1,15 +1,27 @@
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import styles from "./Header.module.css";
+import { useDispatch, useSelector } from 'react-redux';
+import { logOut } from '../../redux/auth/operations';
+import { selectUser } from '../../redux/auth/selectors'; 
+import LogOutModal from "../LogOutModal/LogOutModal";
+import { useState } from "react";
 
-const Header = ({ userName }) => {
-  const navigate = useNavigate();
 
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate("/register");
+const Header = () => {
+ const [isModalOpen, setIsModalOpen] = useState(false);
+  
+
+  const handleLogoutClick = () => {
+    setIsModalOpen(true);
   };
 
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+  
+  const user = useSelector(selectUser);
+  
   return (
     <header className={styles.Wrapper}>
       <div className={styles.Left}>
@@ -18,11 +30,12 @@ const Header = ({ userName }) => {
       </div>
 
       <div className={styles.Right}>
-        <span className={styles.User}>{userName}</span>
-        <button className={styles.ExitButton} onClick={handleLogout}>
+        <span className={styles.User}>{user.username}</span>
+        <button className={styles.ExitButton} onClick={handleLogoutClick}>
           ⎋ Exit
         </button>
       </div>
+      {isModalOpen && <LogOutModal onClose={closeModal} />}
     </header>
   );
 };

@@ -63,7 +63,7 @@ const LoginForm = () => {
       await dispatch(logIn(values)).unwrap();
       toast.success("Login successful!");
       actions.resetForm();
-      navigate("/dashboard"); 
+      navigate("/home"); 
     } catch (error) {
       toast.error(error.message || "Login failed. Please check your credentials.");
     }
