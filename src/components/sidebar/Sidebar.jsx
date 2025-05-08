@@ -4,7 +4,7 @@ import CurrencyChart from "../currencyChart/CurrencyChart";
 import styles from "./Sidebar.module.css";
 import Home from "../../assets/Home";
 import Statistics from "../../assets/Statistics";
-import Balance from "../balance/balance.jsx";
+import Balance from "../Balance/Balance.jsx";
 import Currency from "../Currency/Currency.jsx";
 
 

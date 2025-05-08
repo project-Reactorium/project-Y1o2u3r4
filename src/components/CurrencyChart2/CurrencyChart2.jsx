@@ -1,5 +1,5 @@
 import s from './CurrencyChart2.module.css';
-import CircleSVG from './CircleSvg';
+import CircleSVG from './CircleSVG';
 import LineChartSVG from './LineChartSVG';
 import AreaChartSVG from './AreaChartSVG';
 const CurrencyChart2 = ({ usd, eur, type = 'mob' }) => {

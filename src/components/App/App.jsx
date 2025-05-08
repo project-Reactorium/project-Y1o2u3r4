@@ -54,13 +54,13 @@ import { selectIsRefreshing } from "../../redux/auth/selectors";
 
 // SAYFA BİLEŞENLERİ
 import HomePage from "../../pages/homePage/HomePage";
-import StatisticsPage from "../../pages/statisticsPage/StatisticsPage";
+import StatisticsPage from "../../pages/StatisticsPage/StatisticsPage";
 import CurrencyPage from "../../pages/currencyPage/CurrencyPage";
-import NotFoundPage from "../../pages/notFoundPage/NotFoundPage";
+import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 
 // LAZY LOAD
-const RegisterPage = lazy(() => import('../../pages/registerPage/RegisterPage'));
-const LoginPage = lazy(() => import('../../pages/loginPage/LoginPage'));
+const RegisterPage = lazy(() => import('../../pages/RegisterPage/RegisterPage'));
+const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage'));
 
 function App() {
   const dispatch = useDispatch();

@@ -18,7 +18,7 @@ import HttpsIcon from "@mui/icons-material/Https";
 
 import css from "./LoginForm.module.css";
 import { logIn } from "../../redux/auth/operations";
-import Logotip from "../../images/logo.svg";
+// import Logotip from "../../../public/images/logo.svg";
 const initialValues = {
   email: "",
   password: "",
@@ -72,13 +72,14 @@ const LoginForm = () => {
   return (
     <Container component="main" maxWidth="xs">
       <Box className={css.formStyled}>
-        <Box sx={{ textAlign: "center", marginBottom: 3 }}>
+        <Box sx={{ textAlign: 'center', marginBottom: 3 }}>
           <img
-            src={Logotip}
+            src="/public/images/logo.svg"
             alt="Logo MoneyGuard"
             width="36px"
             height="36px"
             draggable="false"
+            style={{ display: 'inline-block' }}
           />
           <Typography variant="h5">MoneyGuard</Typography>
         </Box>
@@ -105,7 +106,7 @@ const LoginForm = () => {
                         startAdornment: (
                           <InputAdornment position="start">
                             <EmailIcon
-                              sx={{ color: "rgba(255, 255, 255, 0.4)" }}
+                              sx={{ color: 'rgba(255, 255, 255, 0.4)' }}
                             />
                           </InputAdornment>
                         ),
@@ -133,7 +134,7 @@ const LoginForm = () => {
                         startAdornment: (
                           <InputAdornment position="start">
                             <HttpsIcon
-                              sx={{ color: "rgba(255, 255, 255, 0.4)" }}
+                              sx={{ color: 'rgba(255, 255, 255, 0.4)' }}
                             />
                           </InputAdornment>
                         ),
@@ -149,7 +150,7 @@ const LoginForm = () => {
                 variant="contained"
                 fullWidth
                 className={`${css.buttonBase} ${css.customButton}`}
-                sx={{ borderRadius: "20px" }}
+                sx={{ borderRadius: '20px' }}
               >
                 LOG IN
               </Button>
@@ -161,10 +162,10 @@ const LoginForm = () => {
                 className={`${css.buttonBase} ${css.navLinkButton}`}
                 sx={{
                   marginTop: 2,
-                  borderRadius: "20px",
-                  backgroundColor: "#ffffff",
-                  color: "#623f8b",
-                  textDecoration: "none",
+                  borderRadius: '20px',
+                  backgroundColor: '#ffffff',
+                  color: '#623f8b',
+                  textDecoration: 'none',
                 }}
               >
                 REGISTER
