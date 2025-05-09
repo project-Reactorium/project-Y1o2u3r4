@@ -13,6 +13,7 @@ import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth/slice';
 import { statisticsReducer } from './statistics/statisticsSlice';
+import { currencyReducer } from './Currency/slice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -23,9 +24,10 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    statistics: statisticsReducer, // BURAYA EKLİYORUZ
+    statistics: statisticsReducer,
+    currency: currencyReducer,
   },
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],

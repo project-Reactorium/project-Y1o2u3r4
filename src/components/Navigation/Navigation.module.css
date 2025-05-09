@@ -4,6 +4,12 @@
   gap: 38px;
   justify-content: center;
   margin-top: 12px;
+  width: auto;
+}
+
+.navItem {
+  display: inline-block;
+  width: auto;
 }
 
 .linkText {
@@ -13,19 +19,20 @@
 .linkIcon {
   width: 38px;
   height: 38px;
-
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  transition: all 0.3s ease;
 }
 
 .active .linkIcon::before {
   background-color: var(--text-color);
+  box-shadow: 0 0 10px rgba(74, 86, 226, 0.3);
 }
 
 .linkIcon::before {
-  content: "";
+  content: '';
   display: block;
   width: calc(100% - 8px);
   height: calc(100% - 8px);
@@ -35,18 +42,30 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: -1;
+  transition: all 0.3s ease;
 }
 
 .homeIcon,
 .graphicIcon,
 .dollarIcon {
   fill: rgba(255, 255, 255, 0.4);
+  transition: fill 0.3s ease;
 }
 
 .active .homeIcon,
 .active .graphicIcon,
 .active .dollarIcon {
   fill: rgb(74, 86, 226);
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  width: auto;
+  padding: 0;
+  margin: 0;
+  transition: all 0.3s ease;
 }
 
 @media screen and (min-width: 768px) {
@@ -56,6 +75,11 @@
     align-self: start;
     margin-left: 30px;
     margin-top: 40px;
+    width: auto;
+  }
+
+  .navItem {
+    width: auto;
   }
 
   .navLink {
@@ -63,6 +87,14 @@
     align-items: center;
     text-decoration: none;
     gap: 20px;
+    width: auto;
+    padding: 8px 12px;
+    margin: 0;
+    border-radius: 8px;
+  }
+
+  .navLink:hover {
+    background-color: rgba(255, 255, 255, 0.05);
   }
 
   .currencyLink {
@@ -75,12 +107,12 @@
     font-size: 18px;
     font-weight: 400;
     line-height: 27px;
+    transition: all 0.3s ease;
   }
 
   .navLink.active .linkText {
     font-weight: 700;
     font-size: 20px;
-    transition: all 0.5s ease 0s;
   }
 
   .navLink.active .linkIcon {
@@ -88,7 +120,7 @@
   }
 
   .navLink:not(.active):hover > .linkText {
-    transition: all 0.5s ease 0s;
+    color: rgba(255, 255, 255, 0.8);
   }
 
   .linkIcon {
@@ -100,6 +132,11 @@
 @media screen and (min-width: 1280px) {
   .navigation {
     margin-bottom: 28px;
+    margin-left: 40px;
+  }
+
+  .navLink {
+    padding: 10px 16px;
   }
 }
 
@@ -107,7 +144,9 @@
   .active:hover .linkIcon::before,
   .active:focus .linkIcon::before {
     background-color: rgb(74, 86, 226);
+    box-shadow: 0 0 15px rgba(74, 86, 226, 0.4);
   }
+
   .navLink:hover .homeIcon,
   .navLink:focus .homeIcon,
   .navLink:hover .graphicIcon,

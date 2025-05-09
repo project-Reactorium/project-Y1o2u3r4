@@ -1,6 +1,8 @@
-import css from "./Header.module.css";
-import Icon from "../../Icons";
-import { Link } from "react-router-dom";
+import { memo } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import Icon from '../../Icons';
+import css from './Header.module.css';
 
 function Header() {
   return (
@@ -10,7 +12,7 @@ function Header() {
           <Icon id="tab-desk-logo" className={css.tabDeskLogo} />
         </Link>
 
-        <ul>
+        <ul className={css.userMenu}>
           <li>
             <p className={css.NameAndExit}>
               Hello Anonymous |
@@ -26,4 +28,8 @@ function Header() {
   );
 }
 
-export default Header;
+Header.propTypes = {
+  // Add prop types if needed
+};
+
+export default memo(Header);

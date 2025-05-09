@@ -1,18 +1,32 @@
-import React from "react";
-import Header from "../Header/Header";
-import Navigation from "../Navigation/Navigation";
-import StatisticsDashboard from "../Statistics/StatisticsDashboard";
+import { memo } from 'react';
+import PropTypes from 'prop-types';
+import Header from '../Header/Header';
+import Navigation from '../Navigation/Navigation';
+import Statistics from '../Statistics/Statistics';
+import Balance from '../Balance/Balance';
+import Currency from '../Currency/Currency';
+import './App.css';
 
 function App() {
-  const currentPage = 'statistics'; 
-
   return (
-    <div className="app-container">
+    <>
       <Header />
-      <Navigation />
-      {currentPage === 'statistics' && <StatisticsDashboard />}
-    </div>
+      <div className="app-container">
+        <div className="vertical-nav">
+          <Navigation />
+          <Balance />
+          <Currency />
+        </div>
+        <div className="stats-container">
+          <Statistics />
+        </div>
+      </div>
+    </>
   );
 }
 
-export default App;
+App.propTypes = {
+  // Add prop types if needed
+};
+
+export default memo(App);

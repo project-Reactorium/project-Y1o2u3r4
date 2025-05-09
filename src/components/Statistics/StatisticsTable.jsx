@@ -1,118 +1,43 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-  selectFilteredStatistics,
-  selectStatistics,
-  selectSelectedCategory,
-} from '../../redux/statistics/statisticsSelectors';
-import {
-  setSelectedCategory,
-} from '../../redux/statistics/statisticsSlice';
-import { categoriesFilter } from '../../data/categories';
-import styles from './StatisticsTable.module.css';
+import css from './StatisticsTable.module.css';
 
-const StatisticsTable = () => {
-  const dispatch = useDispatch();
-  const filtered = useSelector(selectFilteredStatistics);
-  const allStats = useSelector(selectStatistics);
-  const selectedCategory = useSelector(selectSelectedCategory);
-
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
-
-
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  const toggleDropdown = () => setIsOpen((v) => !v);
-  const handleSelect = (cat) => {
-    dispatch(setSelectedCategory(cat));
-    setIsOpen(false);
-  };
-
-
-  const expenseTotal = allStats
-    .filter((item) => item.type === 'expense')
-    .reduce((sum, item) => sum + item.sum, 0);
-  const incomeTotal = allStats
-    .filter((item) => item.type === 'income')
-    .reduce((sum, item) => sum + item.sum, 0);
-
+const StatisticsTable = ({ data, expenseTotal, incomeTotal }) => {
   return (
-    <>
-      <table className={styles.table}>
-        <thead>
-          <tr>
-       
-            <th ref={dropdownRef} className={styles.categoryHeader}>
-              <div onClick={toggleDropdown} className={styles.headerLabel}>
-                Category
-                {selectedCategory && (
-                  <span className={styles.selected}>
-                    ({selectedCategory})
-                  </span>
-                )}
-              </div>
-              {isOpen && (
-                <ul className={styles.dropdownMenu}>
-                  <li
-                    className={!selectedCategory ? styles.active : ''}
-                    onClick={() => handleSelect('')}
-                  >
-                    All
-                  </li>
-                  {categoriesFilter.map((cat) => (
-                    <li
-                      key={cat}
-                      className={cat === selectedCategory ? styles.active : ''}
-                      onClick={() => handleSelect(cat)}
-                    >
-                      {cat}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </th>
-            <th>Sum</th>
-          
-          </tr>
-        </thead>
-        <tbody>
-          {filtered.length === 0 ? (
-            <tr>
-              <td colSpan={5}>No Data Found.</td>
-            </tr>
-          ) : (
-            filtered.map((item) => (
-              <tr key={item.id}>
-      
-                <td>{item.category}</td>
-                <td>{item.sum.toFixed(2)}</td>
-        
-              </tr>
-            ))
-          )}
-        </tbody>
-      </table>
+    <div>
+      <div className={css.table_head}>
+        <p>Category</p>
+        <p>Sum</p>
+      </div>
+      <div className={css.list_wrapper}>
+        <ul>
+          {data.length
+            ? data.map((category, index) => (
+                <li key={index}>
+                  <div className={css.item_wrapper}>
+                    <p className={css.first_column}>
+                      <span
+                        className={css.span_indicator}
+                        style={{ backgroundColor: `${category.color}` }}
+                      ></span>
+                      {category.name}
+                    </p>
 
-      <div className={styles.totals}>
-        <div>
-          <strong>Expenses:</strong>{' '}
-          {expenseTotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                    <p>{Math.abs(category.total).toFixed(2)}</p>
+                  </div>
+                </li>
+              ))
+            : ''}
+        </ul>
+
+        <div className={css.table_bottom}>
+          <p>Expenses:</p>
+          <span className={css.expense}>{Math.abs(expenseTotal).toFixed(2)}</span>
         </div>
-        <div>
-          <strong>Income:</strong>{' '}
-          {incomeTotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+        <div className={css.table_bottom}>
+          <p>Income:</p>
+          <span className={css.income}>{Math.abs(incomeTotal).toFixed(2)}</span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

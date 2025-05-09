@@ -1,7 +1,13 @@
-import css from "./Home.module.css";
+import { memo } from 'react';
+import PropTypes from 'prop-types';
+import css from './Home.module.css';
 
 function Home() {
-  return <div></div>;
+  return <div className={css.home}></div>;
 }
 
-export default Home;
+Home.propTypes = {
+  // Add prop types if needed
+};
+
+export default memo(Home);

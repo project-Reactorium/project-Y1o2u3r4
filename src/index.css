@@ -1,32 +1,35 @@
-@import url(./utils/variables.css);
+@import url(./styles/variables.css);
 
 @font-face {
-  font-family: "Poppins";
-  src: url("/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: "Poppins";
-  src: url("/fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
 :root {
-  font-family: "Poppins", sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
   letter-spacing: 0.1em;
   line-height: 1.5;
   font-weight: 400;
-  overflow: hidden;
+  overflow-x: hidden;
 
   color: var(--text-color);
   background-color: black;
-  background-image: url("../public/images/gradient-desktop.webp");
+  background-image: url('../public/images/gradient-desktop.webp');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   background-attachment: fixed;
 
   min-height: 100vh;
@@ -68,12 +71,15 @@ ol {
 a {
   color: currentColor;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 button {
   cursor: pointer;
   border: none;
   background-color: transparent;
+  font-family: inherit;
+  transition: all 0.3s ease;
 }
 
 img {
@@ -83,5 +89,18 @@ img {
 }
 
 body {
-  font-family: "Poppins", Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  :root {
+    font-size: 20px;
+  }
 }

@@ -3,4 +3,82 @@
   margin: 0 auto;
   padding: 0;
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  flex: 1;
+  position: relative;
+}
+
+.vertical-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 480px;
+  gap: 22px;
+  position: relative;
+  padding: 0 20px;
+}
+
+.vertical-nav::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  height: 100vh;
+  background-color: #fff;
+  opacity: 0.15;
+  z-index: 1;
+}
+
+.stats-container {
+  width: 100%;
+  max-width: 750px;
+  flex: 1;
+  margin-left: 20px;
+  padding: 0 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .app-container {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .vertical-nav {
+    width: auto;
+    min-width: 336px;
+    padding: 0;
+  }
+
+  .stats-container {
+    padding: 0;
+    margin-left: 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .app-container {
+    margin: 0 auto;
+  }
+
+  .vertical-nav {
+    min-width: 480px;
+  }
+
+  .stats-container {
+    margin-left: 40px;
+  }
 }

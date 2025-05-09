@@ -1,33 +1,54 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { fetchStatistics } from './statisticsOperations';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import {
+  getTransactionsCategories,
+  getTransactionsSummaryByPeriod,
+} from './statisticsOperations.js';
 
 const initialState = {
-  statistics: [],
-  month: 5,
-  year: 2025,
-  selectedCategory: "", 
+  summary: [],
+  categories: [],
+  isStatisticsLoading: false,
+  isStatisticsError: null,
 };
 
-const statisticsSlice = createSlice({
+const slice = createSlice({
   name: 'statistics',
   initialState,
-  reducers: {
-    setMonth(state, action) {
-      state.month = action.payload;
-    },
-    setYear(state, action) {
-      state.year = action.payload;
-    },
-    setSelectedCategory(state, action) {
-      state.selectedCategory = action.payload;
-    },
-  },
-  extraReducers: (builder) => {
-    builder.addCase(fetchStatistics.fulfilled, (state, action) => {
-      state.statistics = action.payload;
-    });
+  extraReducers: builder => {
+    builder
+
+      .addCase(getTransactionsCategories.fulfilled, (state, { payload }) => {
+        state.isStatisticsLoading = false;
+        state.categories = payload;
+      })
+      .addCase(
+        getTransactionsSummaryByPeriod.fulfilled,
+        (state, { payload }) => {
+          state.isStatisticsLoading = false;
+          state.summary = payload;
+        }
+      )
+      .addMatcher(
+        isAnyOf(
+          getTransactionsCategories.rejected,
+          getTransactionsSummaryByPeriod.rejected
+        ),
+        (state, { payload }) => {
+          state.isStatisticsLoading = false;
+          state.isStatisticsError = payload;
+        }
+      )
+      .addMatcher(
+        isAnyOf(
+          getTransactionsCategories.pending,
+          getTransactionsSummaryByPeriod.pending
+        ),
+        state => {
+          state.isStatisticsLoading = true;
+          state.isStatisticsError = null;
+        }
+      );
   },
 });
 
-export const { setMonth, setYear, setSelectedCategory } = statisticsSlice.actions;
-export const statisticsReducer = statisticsSlice.reducer;
+export const statisticsReducer = slice.reducer;

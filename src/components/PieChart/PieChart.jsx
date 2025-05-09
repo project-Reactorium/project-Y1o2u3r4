@@ -1,58 +1,86 @@
-import React from 'react';
-import { Pie } from 'react-chartjs-2';
+import { memo, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { mockTransactions } from '../../data/mockTransactions';
+import { Doughnut } from 'react-chartjs-2';
+import css from './PieChart.module.css';
+import { useSelector } from 'react-redux';
+import { selectSummary } from '../../redux/statistics/statisticsSelectors';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const PieChart = () => {
-  const categoryTotals = mockTransactions.reduce((acc, transaction) => {
-    if (transaction.type === 'expense') {
-      acc[transaction.category] =
-        (acc[transaction.category] || 0) + transaction.amount;
-    }
-    return acc;
-  }, {});
-
-  const data = {
-    labels: Object.keys(categoryTotals),
-    datasets: [
-      {
-        data: Object.values(categoryTotals),
-        backgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#FFCE56',
-          '#4BC0C0',
-          '#9966FF',
-        ],
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'bottom',
-      },
-      title: {
-        display: true,
-        text: 'Gider Kategorileri Dağilimi',
-        font: {
-          size: 16,
-        },
-      },
-    },
-  };
-
-  return (
-    <div style={{ width: '100%', maxWidth: '300px', margin: '0 auto' }}>
-      <Pie data={data} options={options} />
-      {console.log(categoryTotals)}
-    </div>
-  );
+const options = {
+  cutout: '75%',
 };
 
-export default PieChart;
+function PieChart({ data, expenseTotal, incomeTotal }) {
+  const total = useSelector(selectSummary);
+
+  const doughnutData = useMemo(() => ({
+    datasets: [
+      {
+        data: Array.isArray(data) && data.length > 0
+          ? data.map(expense => expense.total)
+          : [0],
+        backgroundColor: Array.isArray(data)
+          ? data.map(expense => expense.color)
+          : [],
+        borderColor: Array.isArray(data)
+          ? data.map(expense => expense.color)
+          : [],
+        borderWidth: 1,
+        borderJoinStyle: 'round',
+        borderAlign: 'inner',
+      },
+    ],
+  }), [data]);
+
+  const renderContent = () => {
+    if (!expenseTotal && !incomeTotal) {
+      return (
+        <div>
+          <p>Add some expenses and incomes to see the chart</p>
+          <p>Your balance is ₴ {Math.abs(expenseTotal).toFixed(2)}</p>
+        </div>
+      );
+    }
+
+    if (!expenseTotal && incomeTotal) {
+      return (
+        <div>
+          <p>Add some expenses</p>
+          <p>Your income is ₴ {Math.abs(incomeTotal).toFixed(2)}</p>
+        </div>
+      );
+    }
+
+    return (
+      <div>
+        <div className={css.balance}>
+          ₴ {Math.abs(expenseTotal).toFixed(2)}
+        </div>
+        <Doughnut data={doughnutData} options={options} />
+      </div>
+    );
+  };
+
+  return <div className={css.doughnut}>{renderContent()}</div>;
+}
+
+PieChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      total: PropTypes.number.isRequired,
+      color: PropTypes.string.isRequired,
+    })
+  ),
+  expenseTotal: PropTypes.number,
+  incomeTotal: PropTypes.number,
+};
+
+PieChart.defaultProps = {
+  data: [],
+  expenseTotal: 0,
+  incomeTotal: 0,
+};
+
+export default memo(PieChart);
