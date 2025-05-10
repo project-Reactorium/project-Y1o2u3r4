@@ -15,10 +15,11 @@ function Header() {
         <ul className={css.userMenu}>
           <li>
             <p className={css.NameAndExit}>
-              Hello Anonymous |
+              Hello Anonymous 
               <span className={css.exitWrapper}>
+             <p className={css.textI}> | </p> 
                 <Icon id="exit-icon" className={css.exitLogo} />
-                Exit
+              <p className={css.NameAndExitText}>Exit</p>  
               </span>
             </p>
           </li>
