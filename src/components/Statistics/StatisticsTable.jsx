@@ -2,7 +2,7 @@ import css from './StatisticsTable.module.css';
 
 const StatisticsTable = ({ data, expenseTotal, incomeTotal }) => {
   return (
-    <div>
+    <div className={css.tableDiv}>
       <div className={css.table_head}>
         <p>Category</p>
         <p>Sum</p>

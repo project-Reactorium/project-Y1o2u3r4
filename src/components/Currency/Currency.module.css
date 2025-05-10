@@ -124,7 +124,7 @@ img {
     height: 167px;
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 768px) {
   .currency_wrapper {
 display: none;
   }}
