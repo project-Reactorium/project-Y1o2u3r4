@@ -10,11 +10,11 @@ const schema = yup.object().shape({
   type: yup.string().required(),
   amount: yup
     .number()
-    .typeError("Sayı girilmelidir")
+    .typeError('Number invalid value')
     .positive()
-    .required("Tutar zorunludur"),
-  date: yup.string().required("Tarih zorunludur"),
-  category: yup.string().required("Kategori zorunludur"),
+    .required('Amount is required'),
+  date: yup.string().required('Date is required'),
+  category: yup.string().required('Category is required'),
   comment: yup.string(),
 });
 
@@ -43,27 +43,27 @@ const AddTransactionForm = ({ onClose }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.Form}>
       <label className={styles.Label}>
-        Tür:
+        Type:
         <select {...register("type")}>
-          <option value="expense">Gider</option>
-          <option value="income">Gelir</option>
+          <option value="expense">Expense</option>
+          <option value="income">Income</option>
         </select>
       </label>
 
       <label className={styles.Label}>
-        Tutar:
+        Amount:
         <input type="number" {...register("amount")} />
         <span className={styles.Error}>{formState.errors.amount?.message}</span>
       </label>
 
       <label className={styles.Label}>
-        Tarih:
+        Date:
         <input type="date" {...register("date")} />
         <span className={styles.Error}>{formState.errors.date?.message}</span>
       </label>
 
       <label className={styles.Label}>
-        Kategori:
+        Category:
         <input type="text" {...register("category")} />
         <span className={styles.Error}>
           {formState.errors.category?.message}
@@ -71,11 +71,11 @@ const AddTransactionForm = ({ onClose }) => {
       </label>
 
       <label className={styles.Label}>
-        Açıklama:
+        Comment:
         <input type="text" {...register("comment")} />
       </label>
 
-      <button type="submit">Ekle</button>
+      <button type="submit">Add</button>
     </form>
   );
 };
