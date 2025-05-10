@@ -1,3 +1,4 @@
+
 .table_head {
   display: flex;
   justify-content: space-between;
@@ -94,3 +95,11 @@
      position: absolute;
   }
 }
+@media screen and (max-width: 768px){
+.tableDiv {
+  width: 280px;
+  height: 607;
+
+
+  position: absolute;
+}}

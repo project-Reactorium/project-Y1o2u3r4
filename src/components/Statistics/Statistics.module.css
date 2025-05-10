@@ -21,16 +21,16 @@
     align-items: center;
     flex-direction: column;
     margin: auto;
- right: 20px;
+    right: 20px;
    position: relative;
   }
   .heading {
     align-self: flex-start;
-    margin-top: 28px;
+    
     font-size: 24px;
     width: 135;
       height: 45;
-      top: 156px;
+    
       left: 20px;
       font-family: Poppins;
         font-weight: 400;

@@ -13,6 +13,7 @@
   .selectContainer {
     width: 280px;
     margin-top: 32px;
+   position: relative;
   }
 }
 
