@@ -1,5 +1,11 @@
 .PageWrapper {
     display: flex;
+    background-image: url("../../../public/images/Gradient.png");
+    background-color: #000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
   }
   
   .HomeWrapper {
