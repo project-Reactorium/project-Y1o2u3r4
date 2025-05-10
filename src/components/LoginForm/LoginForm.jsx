@@ -79,9 +79,14 @@ const LoginForm = () => {
             width="36px"
             height="36px"
             draggable="false"
-            style={{ display: 'inline-block' }}
+            style={{ display: 'inline-block', color: '#623f8b' }}
           />
-          <Typography variant="h5">MoneyGuard</Typography>
+          <Typography
+            variant="h5"
+            style={{ color: 'white' }}
+          >
+            MoneyGuard
+          </Typography>
         </Box>
 
         <Formik
