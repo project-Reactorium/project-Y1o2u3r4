@@ -43,8 +43,8 @@
 @media screen and (min-width: 768px) {
   .doughnut {
     width: 336px;
-    height: 336px;
-    padding: 30px;
+      height: 336px;
+      padding: 30px;
   }
 
   .balance {
@@ -69,5 +69,14 @@
 
   .doughnut p {
     font-size: 20px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .doughnut {
+    width: 256px;
+    height: 256px;
+    padding: 30px;
+    top: 180px;
+    right: 360px;
   }
 }

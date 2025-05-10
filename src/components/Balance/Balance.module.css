@@ -33,9 +33,12 @@
 
 @media screen and (min-width: 768px) {
   .balance {
+    max-width: 80%;
     width: 336px;
     padding: 8px 40px 11.2px 40px;
     align-self: start;
+    margin-left:40px;
+    border-radius: 8px;
   }
 }
 

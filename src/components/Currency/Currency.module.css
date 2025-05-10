@@ -6,6 +6,8 @@
   margin-left: auto;
   margin-right: auto;
   grid-area: currency;
+ 
+ 
 }
 
 .currency_table {
@@ -74,6 +76,7 @@ img {
     gap: 12px;
     margin-top: 0;
     max-width: 336px;
+   
   }
 
   .currency_table_head {
@@ -128,3 +131,14 @@ img {
   .currency_wrapper {
 display: none;
   }}
+
+    @media screen and (max-width: 1280px) {
+      .currency_wrapper {
+        position: relative;
+        width: 336;
+          height: 214;
+          top: 80px;
+          left: 400px;
+          margin-bottom:730;
+ 
+    }}

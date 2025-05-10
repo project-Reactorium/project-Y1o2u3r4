@@ -53,6 +53,7 @@
     justify-content: flex-start;
     gap: 120px;
     padding: 0;
+    
   }
   .column {
     display: flex;
@@ -76,5 +77,23 @@
   }
   .column:last-child {
     margin-top: 0;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .heading{
+    width: 135;
+      height: 45;
+      top: 240px;
+right: 359px;
+margin-bottom:20px;
+       position: relative;
+       text-align: flex-start;
+       font-family: Poppins;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: left;
+
   }
 }
