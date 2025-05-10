@@ -6,10 +6,11 @@ import ModalAddTransaction from "../../components/modalAddTransaction/ModalAddTr
 import Header from "../../components/header/Header";
 import Sidebar from "../../components/sidebar/Sidebar";
 import TransactionChart from "../../components/transactionChart/TransactionChart";
-import styles from "./HomePage.module.css";
+import styles from "./DashboardPage.module.css";
 import { fetchTransactions } from "../../redux/transactionOperations";
+import { Outlet } from "react-router-dom";
 
-const HomePage = () => {
+const DashboardPage = () => {
   const [showModal, setShowModal] = useState(false);
 
   const balance = useSelector((state) => state.finance.totalBalance);
@@ -23,27 +24,17 @@ const HomePage = () => {
 
   return (
     <>
-      
-    
+      <Header userName="" onLogout={() => console.log("exit")} />
+      <div className={styles.PageWrapper}>
+        <Sidebar />
         <div className={styles.HomeWrapper}>
           <div className={styles.RightColumn}>
-            <div className={styles.TransactionContainer}>
-              <TransactionList />
-            </div>
-            <button
-              className={styles.AddButton}
-              onClick={() => setShowModal(true)}
-            >
-              +
-            </button>
-            {showModal && (
-              <ModalAddTransaction onClose={() => setShowModal(false)} />
-            )}
+            <Outlet />  
           </div>
         </div>
-      
+      </div>
     </>
   );
 };
 
-export default HomePage;
+export default DashboardPage;

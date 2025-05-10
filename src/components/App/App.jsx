@@ -57,6 +57,7 @@ import HomePage from "../../pages/homePage/HomePage";
 import StatisticsPage from "../../pages/StatisticsPage/StatisticsPage";
 import CurrencyPage from "../../pages/currencyPage/CurrencyPage";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
+import DashboardPage from "../../pages/dashboardPage/dashboardPage";
 
 // LAZY LOAD
 const RegisterPage = lazy(() => import('../../pages/RegisterPage/RegisterPage'));
@@ -76,22 +77,49 @@ function App() {
     <>
       <ToastContainer position="top-right" autoClose={3000} />
       <Suspense fallback={<p>Yükleniyor...</p>}>
-
         <Routes>
           {/* Yönlendirme */}
-          <Route path="/" element={<Navigate to="/home" />} />
+          <Route path="/" element={<Navigate to="/dashboard" />} />
 
           {/* Giriş/Kayıt (giriş yapmışsa yönlendirilir) */}
           <Route
             path="/register"
-            element={<RestrictedRoute redirectTo="/home" component={<RegisterPage />} />}
+            element={
+              <RestrictedRoute
+                redirectTo="/dashboard"
+                component={<RegisterPage />}
+              />
+            }
           />
           <Route
             path="/login"
-            element={<RestrictedRoute redirectTo="/home" component={<LoginPage />} />}
+            element={
+              <RestrictedRoute
+                redirectTo="/dashboard"
+                component={<LoginPage />}
+              />
+            }
           />
 
-          {/* Özel alanlar (sadece giriş yapılmışsa görünür) */}
+          <Route path="/dashboard" element={<DashboardPage />}>
+            <Route
+              path="home"
+              element={
+                <PrivateRoute redirectTo="/login" component={<HomePage />} />
+              }
+            />
+            <Route
+              path="statistics"
+              element={
+                <PrivateRoute
+                  redirectTo="/login"
+                  component={<StatisticsPage />}
+                />
+              }
+            />
+          </Route>
+
+          {/* Özel alanlar (sadece giriş yapılmışsa görünür)
           <Route
             path="/home"
             element={<PrivateRoute redirectTo="/login" component={<HomePage />} />}
@@ -99,10 +127,12 @@ function App() {
           <Route
             path="/statistics"
             element={<PrivateRoute redirectTo="/login" component={<StatisticsPage />} />}
-          />
+          /> */}
           <Route
             path="/currency"
-            element={<PrivateRoute redirectTo="/login" component={<CurrencyPage />} />}
+            element={
+              <PrivateRoute redirectTo="/login" component={<CurrencyPage />} />
+            }
           />
 
           {/* 404 */}

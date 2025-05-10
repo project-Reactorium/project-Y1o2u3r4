@@ -16,20 +16,24 @@ const Sidebar = () => {
     <aside className={styles.Wrapper}>
       <nav className={styles.NavSection}>
         <NavLink
-          to="/home"
+          to="/dashboard/home"
           className={({ isActive }) =>
-            isActive ? `${styles.StyledLink} ${styles.StyledLinkActive}` : styles.StyledLink
+            isActive
+              ? `${styles.StyledLink} ${styles.StyledLinkActive}`
+              : styles.StyledLink
           }
         >
-          <span className={styles.Icon}>{Home()} Home </span>  
+          <span className={styles.Icon}>{Home()} Home </span>
         </NavLink>
         <NavLink
-          to="/statistics"
+          to="/dashboard/statistics"
           className={({ isActive }) =>
-            isActive ? `${styles.StyledLink} ${styles.StyledLinkActive}` : styles.StyledLink
+            isActive
+              ? `${styles.StyledLink} ${styles.StyledLinkActive}`
+              : styles.StyledLink
           }
         >
-          <span className={styles.Icon}>{Statistics()} Statistics </span> 
+          <span className={styles.Icon}>{Statistics()} Statistics </span>
         </NavLink>
       </nav>
 
@@ -38,7 +42,7 @@ const Sidebar = () => {
           <h4 className={styles.Title}>Your Balance</h4>
           <p className={styles.Amount}>{balance.toFixed(2)} ₺</p>
         </div>
-        <Balance/>
+        <Balance />
         <Currency />
         <div className={styles.CurrencyBox}>
           <h4 className={styles.Title}>Döviz</h4>
@@ -47,7 +51,7 @@ const Sidebar = () => {
               <li key={index}>
                 <strong>
                   {item.currencyCodeA}/{item.currencyCodeB}:
-                </strong>{" "}
+                </strong>{' '}
                 {item.rateBuy?.toFixed(2)}
               </li>
             ))}
