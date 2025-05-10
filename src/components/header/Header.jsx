@@ -24,12 +24,11 @@ const Header = () => {
   
   return (
     <header className={styles.wrapper}>
-      <div className={styles.left}>
+      <div>
         <Link to="/" className={styles.logo}>
           <HeaderLogoSvg />
           Money Guard
         </Link>
-        {/* <span className={styles.brandName}>Money Guard</span> */}
       </div>
 
       <div className={styles.right}>
@@ -42,36 +41,6 @@ const Header = () => {
       {isModalOpen && <LogOutModal onClose={closeModal} />}
     </header>
   );
-
-   return (
-     <header className={styles.header}>
-       <div className={styles.container}>
-         <Link to="/" className={styles.logo}>
-           <HeaderLogoSvg />
-           Money Guard
-         </Link>
-         <div className={styles.userInfo}>
-           <span className={styles.username}>
-             {username ? username : 'Hello anonymous'}
-           </span>
-           <div>
-             <button
-               className={styles.logoutButton}
-               onClick={handleLogoutClick}
-             >
-               <HeaderExitSvg />
-               <p className={styles.headerExit}>Exit</p>
-             </button>
-           </div>
-         </div>
-         {isModalOpen && <LogOutModal onClose={closeModal} />}
-       </div>
-     </header>
-   );
-
-
-
-
 };
 
 export default Header;
