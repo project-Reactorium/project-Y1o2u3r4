@@ -86,7 +86,12 @@ export const RegisterForm = () => {
             draggable="false"
             style={{ display: 'inline-block' }}
           />
-          <Typography variant="h5">MoneyGuard</Typography>
+          <Typography
+            variant="h5"
+            style={{ color: 'white' }}
+          >
+            MoneyGuard
+          </Typography>
         </Box>
 
         <Formik
