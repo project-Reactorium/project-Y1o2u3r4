@@ -16,13 +16,28 @@
 @media only screen and (max-width: 767.98px) {
   .container {
     display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: auto;
+ right: 20px;
+   position: relative;
   }
   .heading {
     align-self: flex-start;
     margin-top: 28px;
     font-size: 24px;
+    width: 135;
+      height: 45;
+      top: 156px;
+      left: 20px;
+      font-family: Poppins;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: left;
+      
   }
   .column {
     width: 100%;
