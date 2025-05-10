@@ -31,7 +31,7 @@
   color: #fbfbfb;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1280px) {
   .balance {
     max-width: 80%;
     width: 336px;

@@ -37,3 +37,12 @@
     margin-left:320px;
   }
 }
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .selectContainer {
+    width: 336;
+      height: 50;    
+      left: 400px;
+     position: absolute;
+      bottom:550px;
+  }
+}
