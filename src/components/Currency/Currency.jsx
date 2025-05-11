@@ -4,7 +4,7 @@ import { selectCurrencyData } from '../../redux/Currency/selectors';
 
 import s from './Currency.module.css';
 
-import imageTab from '../../../public/img/currency.png';
+import imageTab from '/img/currency.png';
 import { getCurrency } from '../../redux/Currency/operations';
 import useMedia from '../../hooks/useMedia';
 

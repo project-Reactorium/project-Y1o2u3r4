@@ -11,6 +11,7 @@ import PrivateRoute from './routes/PrivateRoute';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import clsx from 'clsx';
 import { selectIsAddModalOpen, selectIsEditModalOpen } from './redux/Modals/slice';
 
@@ -74,7 +75,7 @@ function App() {
                     }
                 />
 
-                <Route path="*" element={<Navigate to="/" />}></Route>
+                <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </div>
     );
