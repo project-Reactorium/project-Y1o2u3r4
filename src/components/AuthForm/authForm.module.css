@@ -10,6 +10,13 @@
 .icon_mob {
     width: 130px;
 }
+.passwordStrengthContainer {
+    margin-top: 8px;
+    width: 90%;
+
+    border-radius: 5px;
+    height: 4px;
+}
 
 @media screen and (min-width: 768px) {
     .icon_mob {
@@ -124,5 +131,8 @@
     .button_main,
     .button_secondary {
         width: 280px;
+    }
+    .passwordStrengthContainer {
+        width: 100%;
     }
 }
