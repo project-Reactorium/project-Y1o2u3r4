@@ -10,11 +10,29 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const options = {
     cutout: '75%',
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+        legend: {
+            display: false,
+        },
+        tooltip: {
+            enabled: true,
+            callbacks: {
+                label: function (context) {
+                    const label = context.label || '';
+                    const value = context.raw || 0;
+                    return `${label}: ₴ ${Math.abs(value).toFixed(2)}`;
+                },
+            },
+        },
+    },
 };
 
 function PieChart({ data, expenseTotal, incomeTotal }) {
     const doughnutData = useMemo(
         () => ({
+            labels: Array.isArray(data) ? data.map(expense => expense.name) : [],
             datasets: [
                 {
                     data: Array.isArray(data) && data.length > 0 ? data.map(expense => expense.total) : [0],
@@ -32,7 +50,7 @@ function PieChart({ data, expenseTotal, incomeTotal }) {
     const renderContent = () => {
         if (!expenseTotal && !incomeTotal) {
             return (
-                <div>
+                <div className={css.emptyState}>
                     <p>Add some expenses and incomes to see the chart</p>
                     <p>Your balance is ₴ {Math.abs(expenseTotal).toFixed(2)}</p>
                 </div>
@@ -41,7 +59,7 @@ function PieChart({ data, expenseTotal, incomeTotal }) {
 
         if (!expenseTotal && incomeTotal) {
             return (
-                <div>
+                <div className={css.emptyState}>
                     <p>Add some expenses</p>
                     <p>Your income is ₴ {Math.abs(incomeTotal).toFixed(2)}</p>
                 </div>
@@ -49,9 +67,11 @@ function PieChart({ data, expenseTotal, incomeTotal }) {
         }
 
         return (
-            <div>
+            <div className={css.chartContainer}>
                 <div className={css.balance}>₴ {Math.abs(expenseTotal).toFixed(2)}</div>
-                <Doughnut data={doughnutData} options={options} />
+                <div className={css.chart}>
+                    <Doughnut data={doughnutData} options={options} />
+                </div>
             </div>
         );
     };
@@ -62,6 +82,7 @@ function PieChart({ data, expenseTotal, incomeTotal }) {
 PieChart.propTypes = {
     data: PropTypes.arrayOf(
         PropTypes.shape({
+            name: PropTypes.string.isRequired,
             total: PropTypes.number.isRequired,
             color: PropTypes.string.isRequired,
         })
