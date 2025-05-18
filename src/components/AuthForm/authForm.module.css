@@ -96,6 +96,7 @@
 
 .button_secondary {
     background: var(--button-color);
+    color: black;
 }
 
 @media (hover: hover) {
